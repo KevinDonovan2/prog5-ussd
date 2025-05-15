@@ -1,14 +1,12 @@
-'use strict';
+import express from 'express';
+import ussdRoutes from './src/routes/ussdRoutes.js';
 
-const express = require('express');
 const app = express();
 const port = 3000;
 
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('Bienvenue sur votre serveur Express !');
-});
+app.use('/ussd', ussdRoutes);
 
 app.listen(port, () => {
   console.log(`Serveur lancé sur http://localhost:${port}`);
