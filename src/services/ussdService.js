@@ -1,5 +1,3 @@
-// Service métier pour la logique USSD
-
 export const processUssdInput = (text) => {
   if (!text || text.trim() === '') {
     return 'CON Bienvenue au service USSD\n1. Info\n2. Aide\n3. Quitter';
@@ -8,7 +6,7 @@ export const processUssdInput = (text) => {
   const inputs = text.split('*');
 
   switch (inputs[0]) {
-    case '1': // Info
+    case '1':
       if (inputs.length === 1) {
         return 'CON Info:\n1. Horaires\n2. Adresse\n3. Retour';
       }
@@ -23,11 +21,9 @@ export const processUssdInput = (text) => {
           return 'END Choix invalide dans Info.';
       }
 
-    // Aide
     case '2':
       return 'END Un agent vous contactera sous peu.';
 
-    // Quitter
     case '3':
       return 'END Merci de votre visite !';
 
